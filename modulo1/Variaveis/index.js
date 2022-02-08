@@ -47,7 +47,7 @@ console.log ( Agua )
 console.log ( exercicio )
 
 
-// PARTE 3 DO EXERCICIO
+/* PARTE 3 DO EXERCICIO
 let a = 10
 let b = 25
 let c 
@@ -56,3 +56,11 @@ a = b
 b = c 
 
 console.log (a , b , c)
+*/
+
+//DESAFIO
+let numA = Number(prompt("Informe um valor A"))
+let numB = Number (prompt("Informe um valor B"))
+
+console.log (`o primeiro numero somado com o segundo numero é: ${numA + numB}`)
+console.log (`o primeiro numero multiplicado pelo segundo é igual a: ${numA * numB}`)
