@@ -9,7 +9,7 @@ console.log(a, b)
 // console.log (a b) = 10 , 5
 
 
-let a = 10
+/*let a = 10
 let b = 20
 c = a
 b = c
@@ -17,8 +17,11 @@ a = b
 
 console.log ( a , b , c)
 // console.log (a , b, c)= 10,10,10
+*/
 
-let TrabalhoHr = prompt("Quantas horas você trabalha por dia?")
-let ValorDia = prompt("Quanto você recebe por dia?")
+let p= prompt("Quantas horas você trabalha por dia?")
+let t = prompt("Quanto você recebe por dia?")
 alert(`Voce recebe ${t/p} por hora`)
+ // p- TrabalhoHora t-ValorDia
+
 
