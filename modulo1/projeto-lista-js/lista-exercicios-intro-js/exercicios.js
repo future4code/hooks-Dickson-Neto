@@ -61,29 +61,34 @@ console.log ( `Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${emai
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // implemente sua lógica aqui
-const cor1 = prompt ("Cor1")
-const cor2 = prompt ("COR 2")
-const cor3 = prompt ("COR 3 ")
-ListaDeCores = [cor1 , cor2 , cor3];
-console.log = [ListaDeCores]
+const cor1 = prompt ("1")
+const cor2 = prompt ("2")
+const cor3 = prompt ("3")
+MinhasCores = [cor1 , cor2 , cor3]
+console.log (MinhasCores)
 }
 
 // EXERCÍCIO 06
 function retornaStringEmMaiuscula(string) {
   // implemente sua lógica aqui
-
+const maiusculo = ( string )
+const fraseMaiuscula = maiusculo.toUpperCase()
+return fraseMaiuscula
 }
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
   // implemente sua lógica aqui
+valorEspetaculo = (custo / valorIngresso)
+return valorEspetaculo
 
 }
 
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
   // implemente sua lógica aqui
-
+return string1.lenght() === string2.lenght()
+ 
 }
 
 // EXERCÍCIO 09
