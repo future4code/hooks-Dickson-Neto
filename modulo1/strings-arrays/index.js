@@ -26,7 +26,8 @@ ${comidaFavorita[3]}
 ${comidaFavorita[4]}`)
 const comidaUsuario = prompt("Qual sua comida favorita?")
 comidaFavorita.splice(1,1)
-comidaFavorita.push(comidaUsuario)
+comidaFavorita[1] = comidaUsuario
+comidaFavorita.length -1
 
 console.log (comidaFavorita)
 
