@@ -12,7 +12,7 @@ ficando = SUBI NUM ONIBUS EM MIRROCOS - 27 LETRAS
 */
 
 
-/*ESCRITA CODIGO
+//ESCRITA CODIGO
 const emailDoUsuario = prompt ("Qual seu email?")
 const nomeDoUsuario = prompt ("Qual o seu nome?")
     console.log (`O email ${emailDoUsuario} foi cadastrado com sucesso. Seja bem-vindo(a) ${nomeDoUsuario}`)
@@ -43,10 +43,3 @@ const realizado = Number(prompt("Qual das 3 atividades voce ja realizou (em nume
 const indice = realizado-1
 listaDeTarefas.splice(indice,1)
 console.log (listaDeTarefas)
-*/
-
-//DESAFIO
-
-const frase = prompt ("Digite uma frase")
-const splits = frase.split("")
-console.log (splits)
