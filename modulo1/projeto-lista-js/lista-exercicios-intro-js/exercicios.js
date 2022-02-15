@@ -87,31 +87,46 @@ return valorEspetaculo
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
   // implemente sua lógica aqui
-return string1.lenght() === string2.lenght()
+
+const comparação =  string1.length === string2.length
+return comparação
  
 }
 
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
   // implemente sua lógica aqui
-
+  const meuArray = array
+  return array [0]
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
 
+const ultimo = array [ array.length -1]
+return array[array.length -1]
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
+ const primeirovalor = array.shift()
+ const ultimovalor = array.pop()
+ const trocandovalor = array.push(primeirovalor)
+ const trocandovalor2 = array.unshift(ultimovalor)
+
+ return array
+ 
 
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
+  const PrimeiraString =  string1.toLowerCase()
+  const SegundaString = string2.toLowerCase()
+  return PrimeiraString === SegundaString
 
 }
 
