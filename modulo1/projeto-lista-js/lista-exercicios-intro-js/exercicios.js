@@ -52,7 +52,7 @@ function imprimeInformacoesUsuario() {
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
 const nome = prompt (" Qual seu nome?")
 const idade =  prompt ("Qual sua idade?")
-const email = prompt ("Qual sua idade?")
+const email = prompt ("Qual seu email?")
 
 console.log ( `Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`)
 
