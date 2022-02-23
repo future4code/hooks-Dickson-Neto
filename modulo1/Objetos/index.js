@@ -47,12 +47,13 @@ const pessoa1 = {
 }
 const pessoa2 = {...pessoa1 , nome : "Juba", idade : 25 , profissao : "Cantor" }
 
-function imprimir(objeto) {
+function imprimir(obj) {
     console.log (pessoa1.nome , pessoa1.nome.length , pessoa1.idade , pessoa1.profissao , pessoa1.profissao.length)
     console.log (pessoa2.nome , pessoa2.nome.length , pessoa2.idade , pessoa2.profissao , pessoa2.profissao.length)
 
 }
-imprimir (pessoa1)
+imprimir(pessoa1)
+
 
 //PARTE 3
 const carrinho = []
@@ -65,8 +66,10 @@ const Frutas1 = {
 const fruta2 ={...Frutas1,nome : "UVA" }
 const fruta3 = {...Frutas1, nome : "Goiaba"}
 
-    carrinho.push(Frutas1)
-    carrinho.push(fruta2)
-    carrinho.push(fruta3)
-
+function adicionarCarrinho (obj){
+    carrinho.push(obj)
+}
+adicionarCarrinho(Frutas1)
+adicionarCarrinho(fruta2)
+adicionarCarrinho(fruta3)
 console.log (carrinho)
