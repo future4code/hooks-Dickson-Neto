@@ -46,49 +46,49 @@
 //  console.log(raçaDogs)
 
 
-//2 PARTE
-// const produtos = [
-//     { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
-//     { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
-//     { nome: "Veja Multiuso", categoria: "Limpeza", preco: 12.6 },
-//     { nome: "Dúzia de Banana", categoria: "Hortifruti", preco: 5.7 },
-//     { nome: "Leite", categoria: "Bebidas", preco: 2.99 },
-//     { nome: "Cândida", categoria: "Limpeza", preco: 3.30 },
-//     { nome: "Detergente Ypê", categoria: "Limpeza", preco: 2.2 },
-//     { nome: "Vinho Tinto", categoria: "Bebidas", preco: 55 },
-//     { nome: "Berinjela kg", categoria: "Hortifruti", preco: 8.99 },
-//     { nome: "Sabão em Pó Ypê", categoria: "Limpeza", preco: 10.80 }
-//  ]
+// 2 PARTE
+const produtos = [
+    { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
+    { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
+    { nome: "Veja Multiuso", categoria: "Limpeza", preco: 12.6 },
+    { nome: "Dúzia de Banana", categoria: "Hortifruti", preco: 5.7 },
+    { nome: "Leite", categoria: "Bebidas", preco: 2.99 },
+    { nome: "Cândida", categoria: "Limpeza", preco: 3.30 },
+    { nome: "Detergente Ypê", categoria: "Limpeza", preco: 2.2 },
+    { nome: "Vinho Tinto", categoria: "Bebidas", preco: 55 },
+    { nome: "Berinjela kg", categoria: "Hortifruti", preco: 8.99 },
+    { nome: "Sabão em Pó Ypê", categoria: "Limpeza", preco: 10.80 }
+ ]
  
 //  a) Crie um novo array que contenha apenas o nome de cada item
     
-//     const nomeProdutos = produtos.map((item,index,array)=>{
-//      return item.nome
-//  })
+    const nomeProdutos = produtos.map((item,index,array)=>{
+     return item.nome
+ })
  
 //  b) Crie um novo array que contenha um objeto com o nome e o preço de cada item, aplicando 5% de desconto em todos eles
-//     const novosPreços = produtos.map((item,index,array)=>{
-//     return {nome : item.nome, preço: (item.preco) * 0.95}
-//  })
+    const novosPreços = produtos.map((item,index,array)=>{
+    return {nome : item.nome, preco: (item.preco) * 0.95.toFixed()}
+ })
+
 
 //  c) Crie um novo array que contenha apenas os objetos da categoria Bebidas
-//     const acharBebidas = produtos.filter((item,index,array)=>{
-//      return item.categoria === "Bebidas"
-//  })
+    const acharBebidas = produtos.filter((item,index,array)=>{
+     return item.categoria === "Bebidas"
+ })
 
 //  d) Crie um novo array que contenha apenas os objetos cujo nome contenha a palavra "Ypê"
-//    const acharYpe = produtos.filter((item,index,array)=>{
-//        return item.nome.includes("Ypê")
-//    })
+   const acharYpe = produtos.filter((item,index,array)=>{
+       return item.nome.includes("Ypê")
+   })
 
-  // e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]". Esse array deve conter frases apenas dos itens cujo nome contenha a palavra "Ypê"
-//    const retornarMensagem = acharYpe.map((item,index,array)=>{
-//    console.log (`Compre ${item.nome} por ${item.preco}`)
-//    })
+//   e) Crie um novo array onde cada item é uma frase "Compre [NOME] por [PREÇO]". Esse array deve conter frases apenas dos itens cujo nome contenha a palavra "Ypê"
+   const retornarMensagem = acharYpe.map((item,index,array)=>{
+   console.log (`Compre ${item.nome} por ${item.preco}`)
+   })
 
-//  console.log(nomeProdutos)
-//  console.log (novosPreços)
- 
+ console.log(nomeProdutos)
+ console.log (novosPreços)
 
  //DESAFIO
 //  const pokemons = [
