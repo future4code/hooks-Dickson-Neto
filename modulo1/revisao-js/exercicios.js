@@ -16,12 +16,15 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+let novoArray = array
+    novoArray.sort((a,b)=> a - b)
+    return novoArray
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+let novoArray = array
+    novoArray % 2 === "0"
 }
 
 // EXERCÍCIO 05
