@@ -45,12 +45,35 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+  let maiorNum = 0
+  for(let i = 0; i < array.length; i++){
+      if(array[i] > maiorNum){
+          maiorNum = array[i]
+      }
+    
+  }return maiorNum
+
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+    let numMaior;
+    let numMenor;
+    if(num1 > num2){
+        numMaior = num1
+        numMenor = num2
+    }else{
+      numMaior = num2
+      numMenor = num1
+    }
+dividirMenorNum = maiorNum = numMaior % numMenor === 0
+const diferencaNum = numMaior - numMenor
 
+return {
+    maiorNumero : numMaior,
+    maiorDivisivelPorMenor : dividirMenorNum,
+    diferenca : diferencaNum
+}
 }
 
 // EXERCÍCIO 08
