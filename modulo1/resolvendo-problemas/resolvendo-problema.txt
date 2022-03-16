@@ -1,0 +1,20 @@
+Os 7 passos fundametais 
+Consiste em tecnicas, para que pessoas iniciando na carreira de programação
+consiga olhar para um problema proposto, e resolver da melhor maneira possivel
+sem que fique estagnado.
+
+os 7 passos sao:
+1º Ter atenção no enunciado
+2º Retirar informações importantes do enunciado
+3º Pensar nas entradas e saidas
+	isso ja levando em consideração o começo de escrita do codigo, e o que é proposto para ele
+4º Fazer um esquema visual
+	Seja ele um desenho, um fluxograma, depende de qual o usuario tenha mais facilitade
+5ºCriar codigo Feio
+	Escrever o codigo da maneira que for possivel]
+6º Testar fprça bruta
+	Usar o codigo ja feito, para ver se funciona e sai o que foi pedido
+7º Refatorar
+	Esse consiste em, com o codigo feio pronto e o sendo realizado oque se pede
+	aqui o programador vai deixar o codigo da melhor maneira possivel, em duras palavras
+	"bonito"
