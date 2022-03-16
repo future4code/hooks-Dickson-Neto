@@ -23,13 +23,24 @@ let novoArray = array
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-let novoArray = array
-    novoArray % 2 === "0"
+let numPar = []
+for(pares of array){
+    if ( pares % 2 === 0){
+         numPar.push(pares);
+    }
+}
+return numPar
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    let numPar = []
+    for(pares of array){
+        if ( pares % 2 === 0){
+             numPar.push(pares ** 2);
+        }
+    }
+    return(numPar)
 }
 
 // EXERCÍCIO 06
@@ -39,7 +50,24 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+let maiorNumero;
+let menorNumero;
 
+if(num1 > num2){
+    maiorNumero = num1
+    menorNumero = num2
+}else{
+    maiorNumero = num2;
+    menorNumero = num1
+}
+maiorDividirMenor = maiorNumero % menorNumero === 0
+const diferencaNumeros = maiorNumero - menorNumero
+
+return {
+    maiorNumero : maiorNumero,
+    maiorDivisivelPorMenor : maiorDividirMenor,
+    diferenca : diferencaNumeros
+}
 }
 
 // EXERCÍCIO 08
