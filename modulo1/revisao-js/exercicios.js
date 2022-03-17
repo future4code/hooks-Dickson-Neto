@@ -104,23 +104,38 @@ function retornaSegundoMaiorESegundoMenor(array) {
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
 
-    
 return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores[0]}, ${filme.atores[1]}, ${filme.atores[2]}, ${filme.atores[3]}.`
+
+
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+   const anonimato = {...pessoa, nome:"ANÔNIMO"}
+   return anonimato
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
-}
+ const altura = 1.5
+ const idadeMinima = 14
+ const idadeMaxima = 60
 
+ let pessoasAutorizadas = pessoas.filter((item)=>{
+    return item.altura > altura || item.idade > idadeMinima || item.idade < idadeMaxima
+ })
+ return pessoasAutorizadas
+}
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  
+const alturaOk = 1.5
+const idadeMinima = 14
+const idadeMaxima = 60
+
+let naoAutorizado = pessoas.filter((item)=>{
+    return item.altura < alturaOk || item.idade <= idadeMinima || item.idade > idadeMaxima
+})
+return naoAutorizado
 }
 
 // EXERCÍCIO 14
