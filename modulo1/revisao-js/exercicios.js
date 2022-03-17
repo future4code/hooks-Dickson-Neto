@@ -100,6 +100,8 @@ if(ladoA === ladoB && ladoB === ladoC && ladoA === ladoC){
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+
+
 }
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
@@ -117,14 +119,14 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
- const altura = 1.5
- const idadeMinima = 14
- const idadeMaxima = 60
+ const alturaOk = 1.5
+const idadeMinima = 14
+const idadeMaxima = 60
 
- let pessoasAutorizadas = pessoas.filter((item)=>{
-    return item.altura > altura || item.idade > idadeMinima || item.idade < idadeMaxima
- })
- return pessoasAutorizadas
+let autorizado = pessoas.filter((item)=>{
+    return !(item.altura < alturaOk || item.idade <= idadeMinima || item.idade > idadeMaxima)
+})
+return autorizado
 }
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
@@ -141,11 +143,34 @@ return naoAutorizado
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
 
+    let somando = 0
+    let novoValor = 0
+// somar array
+for(let i=0 ; i < contas.length; i++){
+    for(let somaCompras = 0 ; somaCompras < contas[i].compras.length; somaCompras++){
+        somando += contas[i].compras[somaCompras]
+        novoValor = contas[i].saldoTotal - somando;
+        contas[i].saldoTotal = novoValor;
+        somando=0
+        }   
+        contas[i].compras=[]
+    }
+    return contas
 }
+
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+  let ordemAlfabetica = consultas.sort((function compare(a , b){
+      if(a.nome < b.nome){
+          return -1
+      }else if(a.nome > b.nome){
+          return 1
+      }else{
+          return 0
+      }
+  }))
+  return ordemAlfabetica
 }
 
 // EXERCÍCIO 15B
