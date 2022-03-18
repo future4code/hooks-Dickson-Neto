@@ -100,9 +100,20 @@ if(ladoA === ladoB && ladoB === ladoC && ladoA === ladoC){
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+    let maior2menor = []
+    const crescente = array.sort((a,b)=>{
+        if(a > b) return 1;
+        if(a < b) return -1;
+
+        return 0;
+    })
+    maior2menor.push(crescente[crescente.length -2])
+    maior2menor.push(crescente[1])
+
+    return maior2menor
+  }
 
 
-}
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
 
