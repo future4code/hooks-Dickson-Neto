@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: mediumvioletred;
+}
+
+.container-Corpo{
+    display: grid;
+}
+
+.container-Inicial{
+    display: grid;
+    grid-template-columns: 200px 1fr ;
+   
+  
+}
+nav{
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    background-color: #f2d0e0;
+}
+
+main{
+    display: grid;
+}
+
+footer{
+    background-color: mediumvioletred;
+    position: fixed;
+}
+
+.bolo-gostoso{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row: 1fr 1fr;
+    
+   
+}
+.bolinhos{
+    box-shadow: 5px 5px darkgray;
+    margin: 25px;
+}
+footer{
+    position: relative;
+    padding: 30px;
+    text-align: center;
+}
+
