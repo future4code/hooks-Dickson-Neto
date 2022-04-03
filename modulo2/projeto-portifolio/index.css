@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto:wght@100&display=swap');
+
+
 *{
     margin: 0 auto;
     padding: 0;
+   font-family: 'Roboto', sans-serif;;
 }
 
 
@@ -113,6 +117,7 @@ div p{
 
 #Projetos{
     background-color: rgb(85, 179, 132);
+    
 }
 
 .cards{
@@ -128,6 +133,17 @@ div p{
 
 .titulo{
    color: white;
+  
+   
+}
+.titulo-projetos{
+    border-top: 0.4px solid #fff;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 120px;
+    letter-spacing: 20px;
+    text-decoration: none;
+    color: white;
 }
 
 /* Rodape */
@@ -142,10 +158,73 @@ footer{
 footer h3{
     text-align: center;
     font-size: 15px;
+    color: white;
 }
 
 .imagens{
     display: flex;
     justify-content: space-around;
    
+}
+
+/* Formulario */
+
+#Forms{
+    background-color: rgb(10, 190, 190);
+    display: flex;
+    flex-direction: row;
+    background: rgb(35,31,102);
+    background: linear-gradient(90deg, rgba(35,31,102,1) 0%, rgba(84,84,203,1) 38%, rgba(0,212,255,1) 100%);
+
+}
+
+.titulo-direita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.texto-direita{
+    font-family: 'PT Serif', serif;
+    color: white;
+}
+
+.paragrafo-direita{
+    font-family: 'PT Serif', serif;
+    color: white;
+}
+.forms-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px;
+
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.forms-titulo{
+    font-family: 'PT Serif', serif;
+    color: white;
+    
+}
+
+.forms-escrita{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    color: rgb(66, 56, 56);
+}
+
+.forms-escrita input{
+    padding: 5px;
 }
