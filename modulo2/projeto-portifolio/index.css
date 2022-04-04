@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto:wght@100&display=swap');
+
+
+*{
+    margin: 0 auto;
+    padding: 0;
+   font-family: 'Roboto', sans-serif;;
+}
+
+
+.menu{
+    display: flex;
+   
+    
+}
+
+
+nav{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(58, 56, 55);
+    padding: 20px;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+nav div a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+   
+}
+
+nav div a:hover{
+    color: rgb(20, 20, 26);
+    transition: background .3s;
+   
+    
+}
+
+/* Inicio */
+
+#Inicio{
+    height: 100vh;
+    
+    background-image: url(./Decades-of-Jazz.jpg);
+    display: flex;
+    
+}
+
+.titulo{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 120px;
+    letter-spacing: 20px;
+    text-decoration: none;
+}
+
+div p{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Quem sou  */
+#quem-Sou{
+    height: 100vh;
+}
+.Quem-sou{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color:  rgb(85, 179, 132);;
+   
+}
+
+.imagem{
+    margin-left: 50px;
+}
+
+.texto{
+    margin-top: 50px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 10px;
+    color: white;
+}
+
+.texto1{
+    color: white;   
+    text-align: start   ;
+}
+.pontos-Fortes{
+    margin-top: 20px;
+    color: white;
+}
+
+.capacidade{
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.capacidade p{
+    font-size: 15px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}
+
+
+/* PROJETOS */
+
+#Projetos{
+    background-color: rgb(85, 179, 132);
+    
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.cards a{
+    color: white;
+    
+}
+
+.titulo{
+   color: white;
+  
+   
+}
+.titulo-projetos{
+    border-top: 0.4px solid #fff;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 120px;
+    letter-spacing: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Rodape */
+
+footer{
+    height: 50px;
+    background-color: rgb(58, 56, 55);
+   
+ 
+}
+
+footer h3{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+
+.imagens{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+/* Formulario */
+
+#Forms{
+    background-color: rgb(10, 190, 190);
+    display: flex;
+    flex-direction: row;
+    background: rgb(35,31,102);
+    background: linear-gradient(90deg, rgba(35,31,102,1) 0%, rgba(84,84,203,1) 38%, rgba(0,212,255,1) 100%);
+
+}
+
+.titulo-direita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.texto-direita{
+    font-family: 'PT Serif', serif;
+    color: white;
+}
+
+.paragrafo-direita{
+    font-family: 'PT Serif', serif;
+    color: white;
+}
+.forms-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px;
+
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.forms-titulo{
+    font-family: 'PT Serif', serif;
+    color: white;
+    
+}
+
+.forms-escrita{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    color: rgb(66, 56, 56);
+}
+
+.forms-escrita input{
+    padding: 5px;
+}
