@@ -80,27 +80,28 @@ footer{
 
 @media screen and (max-width:480px){
 
-header{
-    position: fixed;
-    width: 100%;
+    header{
+        position: fixed;
+        width: 100%;
+            
+            
+           
+        }
+     header h1{
+        font-size: 1em;
+        }
         
+    header input{
+         margin-right: 10%;
+         padding: 1px;
+        }
         
-       
-    }
- header h1{
-    font-size: 1em;
-    }
-    
-header input{
-     margin-right: 10%;
-     padding: 1px;
+    .conteudo-principal{
+        display: flex;
+        flex-direction: column;
+        }
+        
+    footer {
+        align-items: center;
     }
     
-.conteudo-principal{
-    display: flex;
-    flex-direction: column;
-    }
-    
-footer {
-    align-items: center;
-}
