@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Major+Mono+Display&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(to bottom, #3366ff 0%, #ff99cc 100%);
+}
+/* HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #3366ff;
+    border-bottom: 1px solid black;
+    
+}
+
+header input{
+   margin-right: 40px;
+   padding: 5px;
+}
+header h1{
+    margin-left: 20px;
+    font-family: 'Major Mono Display', cursive;
+    color: white;
+    
+}
+
+/* MAIN */
+.conteudo-principal{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
+   
+}
+.conteudo-principal-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: #3333ff;
+    margin-top: 30px;
+   
+    
+}
+.conteudo-principal-card img{
+    width: 100%;
+    
+   
+}
+
+.conteudo-principal h3{
+  margin:20px;
+  font-family: 'Fuzzy Bubbles', cursive;
+  color: white
+  
+  
+}
+
+
+/* Rodape */
+
+footer{
+    display: flex;
+    flex-direction:column;
+    background-color: #ff99cc;
+    padding: 30px;
+    font-size: 10px;
+    align-items: center;
+    font-family: 'Major Mono Display', cursive;
+    border-top: 0.4px solid rgb(0, 0, 0);
+}
