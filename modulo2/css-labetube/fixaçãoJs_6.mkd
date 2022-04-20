@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0fd96a58fc02bb54839be2835dbf428cbbee7a02
 ´´´
 function filtraTarefas() {
   const tarefas = [
