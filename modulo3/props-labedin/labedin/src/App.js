@@ -5,13 +5,14 @@ import ImagemButton from './components/ImagemButton/ImagemButton';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 
 
+
 function App() {
   return (
     <div className="App">
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="https://uploads-ssl.webflow.com/5d640f4558306be99cf47a0e/5dd57846babb597b77c6bb1d_PerfilFuture4_cor.png" 
+          imagem="https://github.com/dickfreitas.png" 
           nome="Dickson Freitas" 
           descricao="Tenhos 23 anos, apaixonado por tecnologia e em fazer drinks."
         />

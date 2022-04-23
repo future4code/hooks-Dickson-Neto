@@ -14,6 +14,7 @@ export const BigCard =styled.div`
 ` 
 export const BigCard1 = styled.img`
     width: 100px;
+    border-radius:10px 10px 10px;
 ` 
 
 function CardGrande(props) {
