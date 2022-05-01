@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { GlobalStyle , TelaPrincipal , TelaConversa , TextoLi , BarraUsuario , BarraMensagem , Button ,DivInput, } from "./globalStyle";
-
+import { GlobalStyle ,Button, TelaPrincipal ,TextoLi , SeiLa , BarraUsuario,BarraMensagem, DivInput, Conversa,BalaoUsuario,BalaoMensagem,CardBalao} from "./globalStyle";
+import EstilizarBalao from "./Estilizar.js/Balao";
 
 
 
@@ -38,34 +38,44 @@ export class App extends React.Component{
   render(){
       const conversaWhats = this.state.Conversa.map((conversa) =>{
         return(
-        <div>
-          <TextoLi>
-          <strong>{conversa.nomeDoUsuario}</strong> {conversa.conteudoMensagem}
-          </TextoLi>
-        </div>
+        <CardBalao>
+            <TextoLi>
+             <strong>{conversa.nomeDoUsuario}</strong>  
+            {conversa.conteudoMensagem}
+            </TextoLi>   
+        </CardBalao>
         
         )
       })
-    return(
-    <TelaPrincipal> 
-      <TelaConversa>
-        {conversaWhats}
-        </TelaConversa>
-      <DivInput>
 
-        <BarraUsuario
-          value ={this.state.inputUsuario} onChange={this.onChangeUsuario} placeholder={"Usuario"}
-          />
-        <BarraMensagem
-          value= {this.state.inputMensagem}    onChange={this.onChangeMensagem}   placeholder={'mensagem'}
-          />
-        <Button onClick={this.adicionandoMensagem}>
-          Enviar
-        </Button>
-           
-         </DivInput>
+      
+
+      
+    return(
+    
+    <TelaPrincipal> 
+        <DivInput>
+            <SeiLa>
+              <BarraUsuario
+                value ={this.state.inputUsuario} onChange={this.onChangeUsuario} placeholder={"Usuario"}
+                />
+              <BarraMensagem
+                value= {this.state.inputMensagem}    onChange={this.onChangeMensagem}   placeholder={'Mensagem'}
+                />
+              <Button onClick={this.adicionandoMensagem}>
+                Enviar
+              </Button>
+
+            </SeiLa>
+              
+           <Conversa>
+              {conversaWhats}
+             </Conversa>
+        </DivInput>
 
     </TelaPrincipal>
+          
+   
      
     )
   }
