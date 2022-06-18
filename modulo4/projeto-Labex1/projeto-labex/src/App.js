@@ -1,10 +1,14 @@
+import React from "react";
+import GlobalStyle from "./GlobalStyled";
+import Router from "./Router";
 
 
 function App() {
   return (
-    <div className="App">
-      Ola mundo
-        
+    <div >
+      <GlobalStyle/>
+      <Router/>
+       
     </div>
   );
 }
