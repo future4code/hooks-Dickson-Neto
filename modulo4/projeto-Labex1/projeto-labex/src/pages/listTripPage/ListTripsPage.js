@@ -6,7 +6,8 @@ import { URL_BASE } from "../../constances/links";
 import { goToApplicationForm, backHomePage } from "../../coordination/Coordination";
 import styled from "styled-components";
 import { ContainerCard } from "./ListTripPageStyled";
-import ApplicationForm from "../applicationPage/ApplicationFormPage";
+import { ContainerListTrip, DivTrips,TextTrip, BotaoHome } from './ListTripPageStyled'
+
 
 const ListTrips = () =>{
     const navigate = useNavigate()
@@ -24,9 +25,14 @@ const ListTrips = () =>{
         })
     }
     return (
-        <div>
-             Pagina Lista Viagens
-            <button onClick={()=> backHomePage(navigate)}>Home</button>
+        <ContainerListTrip>
+            <DivTrips>
+            <TextTrip>
+                Lista de Viagens
+            </TextTrip>
+            <BotaoHome onClick={()=> backHomePage(navigate)}>Home</BotaoHome>
+            </DivTrips>
+            
            <div>
            {tripsList.map((trips)=>{
                 return <ContainerCard>
@@ -38,7 +44,7 @@ const ListTrips = () =>{
 
            </div>
           
-        </div>
+        </ContainerListTrip>
     )
 }
 

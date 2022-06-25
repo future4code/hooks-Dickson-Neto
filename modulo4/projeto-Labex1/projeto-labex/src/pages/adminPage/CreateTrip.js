@@ -1,6 +1,10 @@
 import React, {useState , useEffect} from "react"
 import axios from "axios"
 import { URL_BASE , headers } from "../../constances/links"
+import { navigate, useNavigate } from "react-router-dom"
+import { Inputs } from "../homePage/StyledHome"
+import { TextH3 , FormsCreate , DivButton, SelectForm, ContainerForms } from "./AdminStyled"
+import { BotaoForms } from "../applicationPage/ApplicationStyled"
 
 
 const CreateTrip = () =>{
@@ -9,6 +13,7 @@ const CreateTrip = () =>{
     const [dateUser, setDateUser] = useState("")
     const [ descriptionUser, setDescriptionUser] = useState("")
     const [durationUser, setDurationUser] = useState("")
+    const navigate = useNavigate("")
 
 
     const createTrips = ()=>{
@@ -20,7 +25,7 @@ const CreateTrip = () =>{
         durationInDays: durationUser
        }
         axios.post(`${URL_BASE}/trips`,body, headers).then((res)=>{
-            console.log(res)
+            navigate("/adminPage")
         }).catch((err)=>{
             console.log(err)
         })
@@ -42,15 +47,15 @@ const CreateTrip = () =>{
         setDurationUser(event.target.value)
     }
     return(
-        <div>
-           <h2>Criar Viagem</h2>
-           <form>
-                <input 
+        <ContainerForms>
+           <TextH3>Criar Viagem</TextH3>
+           <FormsCreate>
+                <Inputs 
                 value={nameUser}
                 placeholder="Nome"
                 onChange={onChangeName}
                  />
-               <select  value={planetUser} onChange={onChangePlanet}>
+               <SelectForm  value={planetUser} onChange={onChangePlanet}>
                 <option>Mercurio</option>
                 <option>Vênus</option>
                 <option>Terra</option>
@@ -60,30 +65,34 @@ const CreateTrip = () =>{
                 <option>Urano</option>
                 <option>Netuno</option>
                 <option>Plutao</option>
-               </select>
-                <input 
+               </SelectForm>
+                <Inputs 
                  type="date"
                 value={dateUser}
                 placeholder="Data"
                 onChange={onChangeDate}
                  />
-                <input 
+                <Inputs 
                 value={descriptionUser}
                 placeholder="Descrição"
                 onChange={onChangeDescription}
                 
                  />
-                <input 
+                <Inputs 
                 value={durationUser}
                 placeholder="Duração"
                 onChange={onChangeDuration}
                  />
-           </form>
-        <button onClick={()=>createTrips()}>Criar</button>
-        <button>Voltar</button>
+           </FormsCreate>
+           <DivButton>
+                <BotaoForms onClick={()=>createTrips()}>Criar</BotaoForms>
+                 <BotaoForms onClick={()=> navigate("/adminPage")}>Voltar</BotaoForms>
+
+           </DivButton>
+        
 
 
-        </div>
+        </ContainerForms>
     )
 }
 

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useNavigate , useParams} from 'react-router-dom'
-import { goToListTrip } from "../../coordination/Coordination";
 import axios from "axios";
-import { URL_BASE } from "../../constances/links";
-import Countries from "../../components/countries";
+import { URL_BASE, URL_COUNTRY} from "../../constances/links";
+import styled from "styled-components";
+import ImagemForms from '../../imagens/imagem2.svg'
+import { ContainerApplication, ContainerRight ,ImgForms, NameForm, BotaoForms, PNAME,Select} from "./ApplicationStyled";
+import { TextP,Inputs,  } from "../homePage/StyledHome";
 
 
 const ApplicationForm = (props) =>{
@@ -14,7 +16,7 @@ const ApplicationForm = (props) =>{
     const [age , setAge] = useState("")
     const [applicationText , setApplicationText] = useState("")
     const [profession , setProfession] = useState("")
-    const [country , setCountry] = useState("")
+    const [country , setCountry] = useState([])
 
 
     const onChangeName = (event)=>{
@@ -43,49 +45,84 @@ const ApplicationForm = (props) =>{
         }
         axios.post(`${URL_BASE}/trips/${id}/apply` , body).then((res)=>{
            alert("Inscrição concluida com sucesso...Boa sorte!")
+           setName("") 
+           setAge("")
+           setApplicationText("")
+           setProfession("")
+           
+            
         }).catch((err)=>{
            console.log(err.res)
         })
     }
+
+    const getCountries = ()=>{
+        axios.get(URL_COUNTRY).then((res)=>{
+            setCountry(res.data)
+            
+        }).catch((err)=>{
+            console.log(err.response)
+        })
+    }
+    useEffect(() => {
+        getCountries();
+      }, []);
     return(
-        <div>
+        <ContainerApplication> 
+           
+                <ImgForms src={ImagemForms}/>
           
-            <form>
-                 {name}
+          <div>
+            <NameForm>
+            <PNAME>Cadastro para a viagem</PNAME>
+            <BotaoForms onClick={()=> navigate(-1)}>Voltar para ListTrip</BotaoForms>
+            </NameForm>
+          
+             <ContainerRight>
+                 <PNAME>
+                    {name}
+                </PNAME>
               
-                <input 
+                <Inputs 
                 value={nameUser}
                 placeholder="Nome"
                 onChange={onChangeName}
                 />
-                <input
+                <Inputs
                 value={age}
                  placeholder="Idade"
                  onChange={onChangeAge}
                 />
-                <input
+                <Inputs
+                
                 value={applicationText} 
                 placeholder="Texto de candidatura"
                 onChange={onChangeApplicationText}
                 />
-                <input
+                <Inputs
                 value={profession}
                  placeholder="Profissão"
                  onChange={onChangeProfession}
                  />
-                <input
-                 value={country}
-                 placeholder="Nacionalidade"
-                 onChange={onCountry}
-                 />
+                 <Select>
+                 {country.map((country, index) => {
+                    return (
+                        <option key={index} value={country.nome}>
+                        {country.nome}
+                        </option>
+                );
+                })}
+                 </Select>
+                 <BotaoForms onClick={()=>getApplyTrips(idTrips)}>Enviar Formulario</BotaoForms>
+            </ContainerRight>
             
-               
-            </form>
-            <button onClick={()=>getApplyTrips(idTrips)}>Enviar Formulario</button>
-         Pagina Cadastro de viagens
-         <button onClick={()=> navigate(-1)}>Voltar para ListTrip</button>
+
+          </div>
+            
+        
+       
          
-        </div>
+        </ContainerApplication>
     )
 }
 

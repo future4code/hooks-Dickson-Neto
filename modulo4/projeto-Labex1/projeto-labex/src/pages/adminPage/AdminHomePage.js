@@ -3,11 +3,12 @@ import axios from 'axios'
 import { useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { URL_BASE } from '../../constances/links'
+import { headers, URL_BASE } from '../../constances/links'
 import { backHomePage } from "../../coordination/Coordination";
-import { CardTrips } from "../../components/ListTripComponents/StyledTrips";
-import TripDetails from "../tripDetailsPage/TripDetaisPage";
-import CreateTrip from "./CreateTrip";
+import { CardTrips, TextCard } from "../../components/ListTripComponents/StyledTrips";
+import {ContainerAdm} from './AdminStyled'
+import {TextH3 , Div} from './AdminStyled'
+import { BotaoForms } from "../applicationPage/ApplicationStyled";
 
 const AdminPage = (props) => {
     const navigate = useNavigate()
@@ -29,28 +30,44 @@ const AdminPage = (props) => {
         })
     }
 
-   
+   const delTrips = (delId) =>{
+    axios.delete(`${URL_BASE}/trips/${delId}` , headers)
+    .then(()=>{
+        alert("Viagem apagada com sucesso")
+        navigate("/adminPage")
+    }).catch(()=>{
+        alert("Tente novamente mais tarde")
+    })
+   }
 
    
     
     return (
-        <div>
+        <ContainerAdm>
+
+            <div>
+            <TextH3>Painel Administrativo</TextH3>
 
 
-            <h3>Painel Administrativo</h3>
-            <button onClick={() => backHomePage(navigate)}>Home</button>
-            <button onClick={() => navigate("/adminPage/CreateTrip")}>Criar Viagens</button>
-            <button onClick={() => navigate("/")} >Logout</button>
+            </div>
+            
+            <Div>
+                <BotaoForms onClick={() => backHomePage(navigate)}>Home</BotaoForms>
+                <BotaoForms onClick={() => navigate("/adminPage/CreateTrip")}>Criar Viagens</BotaoForms>
+                <BotaoForms onClick={() => navigate("/")} >Logout</BotaoForms>
+            </Div>
+            
 
 
             {getDetais.map((trips) => {
                 return <CardTrips onClick={()=>navigate(`/adminPage/tripDetails/${trips.id}`)} key={trips.id}>
-                    {trips.name}     
-                   
+                     <TextCard>{trips.name}
+                        </TextCard>  
+                    <BotaoForms onClick={()=>delTrips(trips.id)}>Apagar viagem</BotaoForms>
                 </CardTrips>
             })}   
               
-        </div>
+        </ContainerAdm>
     )
 }
 
