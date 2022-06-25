@@ -34,7 +34,7 @@ const TripsComponents = (props)=>{
                 {props.trips.planet}
                 </TextCard>
              
-             <TextCard><Span>Descrição</Span> {props.trips.description}</TextCard>
+             <TextCard><Span>Descrição:</Span> {props.trips.description}</TextCard>
              <TextCard><Span>Duração:</Span>{props.trips.durationInDays} dias</TextCard>
              <TextCard><Span>Data:</Span> {props.trips.date}</TextCard>
              <BotaoHome onClick={()=>getApplyTrips(props.trips.id)}>Inscrever-se</BotaoHome>

@@ -8,11 +8,11 @@ import { BotaoForms } from "../applicationPage/ApplicationStyled"
 
 
 const CreateTrip = () =>{
-    const [nameUser, setNameUser] = useState("")
-    const [planetUser, setplanetUser] = useState("")
-    const [dateUser, setDateUser] = useState("")
-    const [ descriptionUser, setDescriptionUser] = useState("")
-    const [durationUser, setDurationUser] = useState("")
+    const [nameUser, setNameUser] = useState([])
+    const [planetUser, setplanetUser] = useState([])
+    const [dateUser, setDateUser] = useState([])
+    const [ descriptionUser, setDescriptionUser] = useState()
+    const [durationUser, setDurationUser] = useState([])
     const navigate = useNavigate("")
 
 

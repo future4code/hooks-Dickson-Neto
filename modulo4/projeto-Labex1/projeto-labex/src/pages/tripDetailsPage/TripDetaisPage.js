@@ -5,7 +5,7 @@ import axios from "axios";
 import { URL_BASE , headers } from "../../constances/links";
 import { navigate, useNavigate, useParams } from "react-router-dom";
 import { ContainerAdm, TextH3,} from "../adminPage/AdminStyled";
-import {TextName, ListStyle, TextDetails} from './DetailsStyles'
+import {TextName, ListStyle, TextDetails , ContainerDetails} from './DetailsStyles'
 import { Span } from "../../components/ListTripComponents/StyledTrips";
 import { BotaoForms } from "../applicationPage/ApplicationStyled";
 
@@ -19,6 +19,7 @@ const TripDetails = (props) =>{
     // const [testeCondicional , setTests] = useState(null)
     const navigate = useNavigate("")
     const params = useParams()
+    const idTrip = localStorage.getItem("id")
 
     useEffect(()=>{
        
@@ -26,29 +27,47 @@ const TripDetails = (props) =>{
             setDetailsTrip(res.data.trip)
             setCandidates(res.data.trip.candidates)
             setApproved(res.data.trip.approved)
-            console.log(res.data.trip)
+            
 
         }).catch((err) => {
             console.log(err)
         })
     } , [])
     
+    
     const DecideCandidate = (idCandidato)=>{
-        const idTrip = localStorage.getItem("id")
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/dickson-freitas-hooks/trips/${idTrip}/candidates/${idCandidato}/decide`
+       
        const body = {
             approve : "true"
        }
-        axios.put(`${URL_BASE}/trips/${idTrip}/candidates/${idCandidato}/decide`,body , headers ).then(()=>{
-            setApproved()
+        axios.put(url,body , headers ).then((res)=>{
+            setCandidates(res.data.candidates.name)
+            navigate(`/adminPage/tripDetails/${params.id}`)
         }).catch((err)=>{
             console.log(err.response)
         })  
     }
    
-     
+     const candidatesPending = candidates &&  candidates.map((wait)=>{
+        return(
+            
+            <div key={wait.id}>
+                
+            <ListStyle key={ wait.name} >
+           { wait.name}
+            <button onClick={()=> DecideCandidate(wait.id)}>Aprovar</button>
+            </ListStyle>
+            </div>
+       )
+    })
+
+    const candidatesApproved = approved &&  approved.map((approved)=>{
+        return(<div><ListStyle>{approved.name}</ListStyle></div>)
+    })
     return (
         
-        <ContainerAdm>
+        <ContainerDetails>
             <TextH3>Detalhes da Viagem:  </TextH3>
             <div>
                  <TextName>
@@ -80,27 +99,14 @@ const TripDetails = (props) =>{
             </div>
            <div>    
             <TextDetails>Candidatos Pendentes</TextDetails>
-            {candidates.map((wait)=>{
-                return(
-                    
-                    <div >
-                        
-                    <ListStyle key={ wait.name} >
-                   { wait.name}
-                    <button onClick={()=> DecideCandidate(wait.id)}>Aprovar</button>
-                    </ListStyle>
-                    </div>
-               )
-            })}
+            <ol>{candidatesPending ? candidatesPending  : <p>Carregando...</p>}</ol>
 
             <TextDetails>Candidatos aprovados</TextDetails>
-            {approved.map((approved)=>{
-                return(<div><ListStyle>{approved.name}</ListStyle></div>)
-            })}
-
+            <ol>{candidatesApproved}</ol>
+           
            </div>
             <BotaoForms onClick={()=>navigate("/adminPage")}>Voltar</BotaoForms>
-        </ContainerAdm>
+        </ContainerDetails>
        
     )
 }

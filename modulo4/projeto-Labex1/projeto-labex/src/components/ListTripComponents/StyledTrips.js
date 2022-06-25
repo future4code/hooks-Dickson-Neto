@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const CardTrips = styled.div`
 padding: 30px;
 margin: 10px;
-width: 40%;
+width: 50vw;
 border-radius: 10px 10px ;
 border: 1px solid black;
 background-color: #1e8d99;;
+
 
 `
 

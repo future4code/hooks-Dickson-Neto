@@ -31,8 +31,8 @@ const HomePage = () =>{
         axios.post(`${URL_BASE}/login`, body).then((res)=>{
             localStorage.setItem("token",res.data.token)
             navigate("/adminPage")
-            // setInputEmail("")
-            // setInputPassoword("")
+            setInputEmail("")
+            setInputPassoword("")
         }).catch((err)=>{
             console.log(err.response.data)
         })

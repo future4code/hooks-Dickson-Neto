@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 //==========Container Trips========
 export const ContainerListTrip = styled.div`
-    width: 100vw;
+    width: auto;
     height: 100vh;
+    max-height: auto;
     background-color:#ffac33;
 `
 
@@ -27,9 +28,8 @@ export const TextTrip = styled.p`
 
 export const ContainerCard = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: center ;
     
 `
 export const BotaoHome= styled.button `

@@ -26,3 +26,10 @@ export const TextDetails = styled.h3`
   padding: 20px;
 
 `
+
+export const ContainerDetails= styled.div`
+      background-color:#ffac33;
+      width: 100vw;
+      height: auto;
+      max-height: auto;
+`

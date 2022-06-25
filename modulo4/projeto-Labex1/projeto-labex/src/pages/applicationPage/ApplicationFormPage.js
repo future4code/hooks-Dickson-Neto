@@ -75,7 +75,7 @@ const ApplicationForm = (props) =>{
           <div>
             <NameForm>
             <PNAME>Cadastro para a viagem</PNAME>
-            <BotaoForms onClick={()=> navigate(-1)}>Voltar para ListTrip</BotaoForms>
+            <BotaoForms onClick={()=> navigate(-1)}>Voltar para Viagens</BotaoForms>
             </NameForm>
           
              <ContainerRight>

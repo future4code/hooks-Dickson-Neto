@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const ContainerAdm = styled.div`
       background-color:#ffac33;
       width: 100vw;
-      height: 100vh;
+      height: 100vw;
+      max-height: auto;
 `
 export const Div = styled.button`
     display: flex;
