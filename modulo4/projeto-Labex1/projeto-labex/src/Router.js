@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter , Routes , Route } from "react-router-dom";
-import AdminPage from "./pages/AdminHomePage";
-import CreateTrip from './pages/CreateTripPage'
+import AdminPage from "./pages/adminPage/AdminHomePage";
+
 import HomePage from './pages/homePage/HomePage'
-import ListTrip from './pages/ListTripsPage'
-import TripDetails from './pages/TripDetaisPage'
-import ApplicationForm from "./pages/ApplicationFormPage";
+import ListTrip from './pages/listTripPage/ListTripsPage'
+import TripDetails from './pages/tripDetailsPage/TripDetaisPage'
+import ApplicationForm from "./pages/applicationPage/ApplicationFormPage";
+import CreateTrip from "./pages/adminPage/CreateTrip";
+
 
 const Router = () =>{
     return(
@@ -13,10 +15,10 @@ const Router = () =>{
             <Routes>
                 <Route index element={<HomePage/>}/>
                 <Route path="/listTrip" element={<ListTrip/>}/>
-                <Route path="/creatTrip" element={<CreateTrip/>}/>
                 <Route path="/adminPage" element={<AdminPage/>}/>
-                <Route path="/tripDetails" element={<TripDetails/>}/>
+                <Route path="/adminPage/tripDetails/:id" element={<TripDetails/>}/>
                 <Route path="/listTrip/:applicationForm" element={<ApplicationForm/>}/>
+                <Route path="/adminPage/CreateTrip" element={<CreateTrip/>}/>
             </Routes>
         
         </BrowserRouter>

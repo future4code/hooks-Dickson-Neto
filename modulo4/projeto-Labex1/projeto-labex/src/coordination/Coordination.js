@@ -1,4 +1,4 @@
-import ApplicationForm from "../pages/ApplicationFormPage"
+import ApplicationForm from "../pages/applicationPage/ApplicationFormPage"
 
 // ==========HOME PAGE  BUTTON ===============
 export const goToListTrip = (navigate)=>{
