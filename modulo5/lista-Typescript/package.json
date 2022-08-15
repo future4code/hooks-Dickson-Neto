@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./build/Exercicio-6.js"
+    "exercicio1": "tsc && node ./build/Exercicio-1.js",
+    "exercicio2": "tsc && node ./build/Exercicio-2.js",
+    "exercicio3": "tsc && node ./build/Exercicio-3.js",
+    "exercicio4": "tsc && node ./build/Exercicio-4.js",
+    "exercicio5": "tsc && node ./build/Exercicio-5.js",
+    "exercicio6": "tsc && node ./build/Exercicio-6.js"
   },
   "keywords": [],
   "author": "",

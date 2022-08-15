@@ -1,9 +1,11 @@
- 
-    const nome : string  = process.argv[2]
-    const idade : string = process.argv[3]
-    const idadeSplit = idade.split("/")
+
    
     
-   
+   const addName = (paramer:string, idade : string ) =>{
+    const name : string = paramer
+    const age : string = idade
+    const split = age.split("/")
+    console.log(` Olá me chamo ${name}, nasci no dia ${split[0]} do mês  ${split[1]} do ano de ${split[2]}`)
+   }
 
-    console.log(` Olá me chamo ${nome}, nasci no dia ${idadeSplit[0]} do mês de ${idadeSplit[1]} do ano de ${idadeSplit[2]}`)
+   addName("Dickson" , "23/02/1999")
