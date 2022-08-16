@@ -1,0 +1,2 @@
+//B
+//com o comando a criação do ts config de uma maneira mais profunda, e com diversos modulos, a diferença entre ele e o arquivo que criamos em aula é que o segundo, estamos usando apenas o necessario para o curso e para nos aprendizes de dev.
