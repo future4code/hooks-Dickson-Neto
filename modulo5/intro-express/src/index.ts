@@ -20,6 +20,7 @@ type Users = {
     phone : number,
     email : string , 
     website : string
+   
     
 }
 
@@ -32,6 +33,7 @@ const arrayUsuarios : Users[] = [
         phone:  1-770-736-8031,
         email: "Sincero@april.biz",
         website : "hildegard.org",
+      
        
     },
     {
@@ -101,7 +103,7 @@ const postsUsers : Posts[] = [
 
 app.get('/posts/:clientId' , (req , res)=>{
    const clientId = Number(req.params.clientId)
-    const posts = postsUsers.map((user)=>{
+    const posts = postsUsers.filter((user)=>{
         if(user.userId === clientId ){
            res.send(user)
         }
@@ -109,13 +111,37 @@ app.get('/posts/:clientId' , (req , res)=>{
 res.send(posts)
 })
    
-//   const postClient = postsUsers.map((post)=>{
-//     if(post.userId === clientId){
-//         return(post)
-//     }
-//   }).flat(1)
-//   res.send(postClient)
-
+//DESAFIOO
+//Exercicio 9 
+//Deletando uma postagem.
+app.delete("/posts/:clientId" , (req , res)=>{
+    const clientId = Number(req.params.clientId)
+    const delPost = postsUsers.map((user)=>{
+        if(user.userId === clientId){
+           return{
+             user : []
+            }
+           
+        }
+      
+      
+    })
+    res.send(delPost)
+})
+//Exercicio 10 
+//Deletando um usuario
+app.delete("/usuario/:id" , (req , res) =>{
+    const id = Number(req.params.id)
+    const delUser = arrayUsuarios.map((client)=>{
+        if(client.id === id){
+            return{
+                usuario : [],
+            }
+        }
+        return(client)
+    })
+    res.send(delUser)
+})
 
 app.listen(3003 ,  () =>{
     console.log("O servidor esta online")
