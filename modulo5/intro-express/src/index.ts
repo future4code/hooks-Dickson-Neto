@@ -26,7 +26,7 @@ type Users = {
 
 //Exercicio 3
 
-const arrayUsuarios : Users[] = [
+let arrayUsuarios : Users[] = [
     {
         id: 1,
         name: "Leanne Graham",
@@ -62,7 +62,7 @@ app.get('/users' , (req , res) =>{
 //Exercicio5 
 type Posts = {
     userId : number,
-    id : number ,
+    postId : number ,
     title : string,
     body : string,
     
@@ -71,22 +71,22 @@ type Posts = {
 
 //Exercicio 6 
 //Fora, captando o id do usuario que vai fazer o post em questao, ou mostrando os que ja foram feitos 
-const postsUsers : Posts[] = [
+let postsUsers : Posts[] = [
     {
      userId : 1,
-     id : 1,
+     postId : 1,
      title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
      body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
     },
     {
      userId : 2,
-     id: 1,
+     postId: 2,
      title: "qui est esse",
      body :  "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
     },
     {
      userId : 3,
-     id: 1,
+     postId: 3,
      title: "qui est esse",
      body :  "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
     }
@@ -116,30 +116,22 @@ res.send(posts)
 //Deletando uma postagem.
 app.delete("/posts/:clientId" , (req , res)=>{
     const clientId = Number(req.params.clientId)
-    const delPost = postsUsers.map((user)=>{
-        if(user.userId === clientId){
-           return{
-             user : []
-            }
-           
-        }
-      
-      
+    const delPost = postsUsers.filter((user)=>{
+       return user.postId !== clientId
     })
+    postsUsers = delPost
     res.send(delPost)
 })
+
 //Exercicio 10 
 //Deletando um usuario
 app.delete("/usuario/:id" , (req , res) =>{
     const id = Number(req.params.id)
-    const delUser = arrayUsuarios.map((client)=>{
-        if(client.id === id){
-            return{
-                usuario : [],
-            }
-        }
-        return(client)
+    const delUser = arrayUsuarios.filter((client)=>{
+       return client.id !== id
+       
     })
+    arrayUsuarios = delUser
     res.send(delUser)
 })
 
