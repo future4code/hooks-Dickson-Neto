@@ -26,14 +26,6 @@ export type Transaction = {
 //DADOS DOS USUARIOS PARA O BANCO
 export let usersBank : Users[] = [
    {
-    name : "Dickson",
-    CPF : "11111111123",
-    birthDate : "11/02/1999",
-    balance : 0,
-    bankStatemente : []
-   },
-
-   {
     name : "Karl Josefsen",
     CPF : "97136590078",
     birthDate : "26/12/1994",
@@ -47,5 +39,12 @@ export let usersBank : Users[] = [
     birthDate : "19/01/1984",
     balance : 0,
     bankStatemente : []
-   }
+   },   
+   {
+    name : "Ruan Carlos",
+    CPF : "11111111123",
+    birthDate : "11/02/1999",
+    balance : 0,
+    bankStatemente : []
+   },
 ]

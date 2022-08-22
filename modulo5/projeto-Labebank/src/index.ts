@@ -1,4 +1,4 @@
-import express , {Express , Request , Response}  from "express";
+import express , {Express , query, Request , response, Response}  from "express";
 import cors from 'cors';
 import { usersBank, Users, Transaction , today , year } from "./data";
 
@@ -18,7 +18,7 @@ app.post("/createUsers" ,  (req :Request, res:Response ) =>{
     const yearBirth = birthDate.split("/")
 
     let idade : Number = year  - yearBirth[2] 
-
+try{
     if(idade < 18){
         throw new Error ("Você deve ter no minimo 18 anos para criar uma conta")
     }else {
@@ -33,20 +33,23 @@ app.post("/createUsers" ,  (req :Request, res:Response ) =>{
         usersBank.push(newUsers)
     }
 res.send("Usuario Criado com sucesso")
+}catch (error){
+    res.send(error.message)
+}
+
 
 })
-
 //PEGAR SALDO DA CONTA 
 app.get("/users/balance" , (req :Request, res:Response) =>{
    const cpf = req.headers.cpf
     if(!cpf){
-        throw new Error ()   
+        throw new Error ("CPF não condiz com nenhuma conta cadastrada!!")   
     }
     try{
         const index = usersBank.findIndex(client => client.CPF === cpf)
         res.send(`${usersBank[index].name}, seu saldo é:R$ ${usersBank[index].balance} `)
-    }catch{
-        throw new Error("CPF não condiz com nenhuma conta cadastrada!!")
+    }catch (error : any){
+       res.send(error.message)
     }
 }) 
 
@@ -69,9 +72,8 @@ app.post("/myAccount" , (req : Request , res : Response) =>{
             usersBank[index].bankStatemente.push(newDeposit)
             res.send(`${usersBank[index].name} depositou ${cash}. Seu saldo atual é ${usersBank[index].balance}`)
         }
-    }catch{
+    }catch {
         throw new Error ("Algo esta errado, ligue para o seu gerente!")
-
     }
 })
 
@@ -119,6 +121,18 @@ app.put("/myAccount/pay" , (req : Request , res : Response) =>{
    
 })
 
+
+app.post("/myAccount/internalTransfer" , (req : Request , res: Response) =>{
+   const {nameR , cpfR} = req.headers.entries
+    
+    // const index = usersBank.findIndex(client => client.name === nameR)
+    console.log(nameR , cpfR)
+    // if(){
+  
+    // }else{
+    //     throw new Error ("Algum parametro foi passado errado")
+    // }
+})
 app.listen("3003" , () =>{
     console.log('O servidor esta online na porta 3003')
 })
