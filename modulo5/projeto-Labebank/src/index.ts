@@ -42,12 +42,16 @@ res.send("Usuario Criado com sucesso")
 //PEGAR SALDO DA CONTA 
 app.get("/users/balance" , (req :Request, res:Response) =>{
    const cpf = req.headers.cpf
-    if(!cpf){
-        throw new Error ("CPF não condiz com nenhuma conta cadastrada!!")   
-    }
+   
     try{
         const index = usersBank.findIndex(client => client.CPF === cpf)
-        res.send(`${usersBank[index].name}, seu saldo é:R$ ${usersBank[index].balance} `)
+        if(index){
+            res.send(`${usersBank[index].name}, seu saldo é:R$ ${usersBank[index].balance} `)
+        }else{
+            throw new Error ("CPF não condiz com nenhuma conta cadastrada!!")   
+
+        }
+      
     }catch (error : any){
        res.send(error.message)
     }
@@ -56,12 +60,12 @@ app.get("/users/balance" , (req :Request, res:Response) =>{
 //ADICIONANDO SALDO A UMA CONTA 
 app.post("/myAccount" , (req : Request , res : Response) =>{
     const {name , cpf , cash } = req.body
+    try{
     if(!name || !cpf || !cash){
-        throw new Error ("Faltam informações para o deposito")
+        throw new Error ("Necessario informar o seu cpf!")
     }
     const index = usersBank.findIndex(client => client.name === name && client.CPF === cpf)
     
-    try{
         if(index != -1){
             usersBank[index].balance = usersBank[index].balance + cash
             const newDeposit = {
@@ -72,7 +76,7 @@ app.post("/myAccount" , (req : Request , res : Response) =>{
             usersBank[index].bankStatemente.push(newDeposit)
             res.send(`${usersBank[index].name} depositou ${cash}. Seu saldo atual é ${usersBank[index].balance}`)
         }
-    }catch (error){
+    }catch (error) {
         res.send(error.message)
     }
 })
@@ -147,8 +151,7 @@ const userEntrada = usersBank.findIndex(client => client.name === nameEntrada &&
         }
         if(transfer <= 0){
             throw new Error ("Dinheiro insuficiente para realizar a transação")
-         }
-          
+         } 
         const transferEntrada : Transaction = {
             date : today,
             amount : newValor,
