@@ -1,6 +1,6 @@
 import express , {Express , query, Request , response, Response}  from "express";
 import cors from 'cors';
-import { usersBank, Users, Transaction , today , year } from "./data";
+import { usersBank, Users, Transaction , DEAL, today , year } from "./data";
 
 const app : Express = express()
 
@@ -67,20 +67,20 @@ app.post("/myAccount" , (req : Request , res : Response) =>{
             const newDeposit = {
                 date : today,
                 amount : cash,
-                description : "Saldo adicionado com sucesso"
+                description : DEAL.DEPOSITO
             }
             usersBank[index].bankStatemente.push(newDeposit)
             res.send(`${usersBank[index].name} depositou ${cash}. Seu saldo atual é ${usersBank[index].balance}`)
         }
-    }catch {
-        throw new Error ("Algo esta errado, ligue para o seu gerente!")
+    }catch (error){
+        res.send(error.message)
     }
 })
 
 //PAGANDO UMA CONTA COM O VALOR DA CONTA
 app.put("/myAccount/pay" , (req : Request , res : Response) =>{
     const {cpf} = req.headers
-    const {payment_date , description , cash} = req.body
+    const {payment_date , cash} = req.body
 
     const index = usersBank.findIndex(client => client.CPF === cpf)
     const valorTotal = usersBank[index].balance - cash
@@ -89,7 +89,7 @@ app.put("/myAccount/pay" , (req : Request , res : Response) =>{
             if(payment_date){
                 const newBill : Transaction = {
                     date : payment_date ,
-                    description,
+                    description : DEAL.DEBITO,
                     amount : valorTotal
                 }
                 //VERFICAÇÃO PARA NÃO DEIXAR PAGAR A CONTA SEM TER O VALOR DEPOSITADO
@@ -105,7 +105,7 @@ app.put("/myAccount/pay" , (req : Request , res : Response) =>{
                 //CASO NÃO PASSE A DATA NO BODY, ELE RECONHECERA A DATA ATUAL PARA O PAGAMENTO DA CONTA
                 const newBill : Transaction = {
                     date : today,
-                    description,
+                    description : DEAL.DEBITO,
                     amount : cash
                 }
                 usersBank[index].balance =  usersBank[index].balance - cash
@@ -116,22 +116,60 @@ app.put("/myAccount/pay" , (req : Request , res : Response) =>{
             throw new Error ("Verifique suas informações")
         }
     }catch (error){
-        throw new Error ("Verifique suas informações")
+       res.send(error.message)
     }
    
 })
 
 
 app.post("/myAccount/internalTransfer" , (req : Request , res: Response) =>{
-   const {nameR , cpfR} = req.headers.entries
-    
-    // const index = usersBank.findIndex(client => client.name === nameR)
-    console.log(nameR , cpfR)
-    // if(){
-  
-    // }else{
-    //     throw new Error ("Algum parametro foi passado errado")
-    // }
+const {nomeSaida, cpfSaida, nameEntrada ,  cpfEntrada ,  valor } = req.body
+
+const userSaida = usersBank.findIndex(client => client.name === nomeSaida && client.CPF === cpfSaida)
+
+const userEntrada = usersBank.findIndex(client => client.name === nameEntrada && client.CPF === cpfEntrada)
+
+
+ if(!userEntrada  || !userSaida){
+    throw new Error ("Preencha os campos que faltam")
+ }
+
+ try{
+    if(userSaida && userEntrada ){
+        //SETANDO O VALOR QUE O USUARIO TEM NA CONTA
+        let transfer = usersBank[userSaida].balance - valor
+        let newValor = usersBank[userEntrada].balance + valor
+        //INFORMAÇOES DE TRANSFERENCIA
+        const transferSaida : Transaction = {
+            date : today,
+            amount : transfer,
+            description : DEAL.TRANFER_SAIDA
+        }
+        if(transfer <= 0){
+            throw new Error ("Dinheiro insuficiente para realizar a transação")
+         }
+          
+        const transferEntrada : Transaction = {
+            date : today,
+            amount : newValor,
+            description : DEAL.TRANSFER_ENTRADA
+         }
+
+        //PUXANDO AS INFORMAÇÕES PARA O ARRAY DE EXTRATO  
+        usersBank[userSaida].bankStatemente.push(transferSaida)
+        usersBank[userEntrada].bankStatemente.push(transferEntrada)
+        
+        res.send(`${ usersBank[userSaida].name} transferiu o valor de ${valor} para ${ usersBank[userEntrada].name}. Saldo atual é de ${transfer}`)
+        
+    }else{
+        throw new Error ("Faltam Parametros para a transferencia")
+    }
+ }catch (error){
+    res.send(error.message)
+ }
+
+
+ 
 })
 app.listen("3003" , () =>{
     console.log('O servidor esta online na porta 3003')
