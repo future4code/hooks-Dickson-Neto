@@ -1,4 +1,4 @@
-import express , {Express , query, Request , response, Response}  from "express";
+pimport express , {Express , query, Request , response, Response}  from "express";
 import cors from 'cors';
 import { usersBank, Users, Transaction , DEAL, today , year } from "./data";
 
@@ -99,7 +99,7 @@ app.put("/myAccount/pay" , (req : Request , res : Response) =>{
                 //VERFICAÇÃO PARA NÃO DEIXAR PAGAR A CONTA SEM TER O VALOR DEPOSITADO
             if(valorTotal < 0){
                 res.send("Valor insuficiente")
-
+            
             }else{
                 usersBank[index].bankStatemente.push(newBill)
                 res.send(`Pagamento realizado com sucesso. ${usersBank[index].name} ,  seu saldo atual é ${valorTotal}`)
