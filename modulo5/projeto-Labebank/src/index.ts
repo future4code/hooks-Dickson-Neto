@@ -1,4 +1,4 @@
-pimport express , {Express , query, Request , response, Response}  from "express";
+import express , {Express , query, Request , response, Response}  from "express";
 import cors from 'cors';
 import { usersBank, Users, Transaction , DEAL, today , year } from "./data";
 
@@ -82,14 +82,14 @@ app.post("/myAccount" , (req : Request , res : Response) =>{
 })
 
 //PAGANDO UMA CONTA COM O VALOR DA CONTA
-app.put("/myAccount/pay" , (req : Request , res : Response) =>{
-    const {cpf} = req.headers
+app.put("/myAccount/:pay" , (req : Request , res : Response) =>{
+    const {pay} = req.params
     const {payment_date , cash} = req.body
 
-    const index = usersBank.findIndex(client => client.CPF === cpf)
+    const index = usersBank.findIndex(client => client.CPF === pay)
     const valorTotal = usersBank[index].balance - cash
      try{
-        if(index ) {
+        if(index) {
             if(payment_date){
                 const newBill : Transaction = {
                     date : payment_date ,
@@ -162,7 +162,7 @@ const userEntrada = usersBank.findIndex(client => client.name === nameEntrada &&
         usersBank[userSaida].bankStatemente.push(transferSaida)
         usersBank[userEntrada].bankStatemente.push(transferEntrada)
         
-        res.send(`${ usersBank[userSaida].name} transferiu o valor de ${valor} para ${ usersBank[userEntrada].name}. Saldo atual é de ${transfer}`)
+        res.send(`${ usersBank[userSaida].name} transferiu o valor de ${valor} para ${ usersBank[userEntrada].name}. Saldo atual é de ${ newValor }`)
         
     }else{
         throw new Error ("Faltam Parametros para a transferencia")

@@ -74,7 +74,7 @@ export let usersBank : Users[] = [
     name : "Ruan Carlos",
     CPF : "11111111123",
     birthDate : "11/02/1999",
-    balance : 3000,
+    balance : 5000,
     bankStatemente : [
         {
         date : "22/08/2022",
