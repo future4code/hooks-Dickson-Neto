@@ -37,17 +37,17 @@ export let usersBank : Users[] = [
     birthDate : "26/12/1994",
     balance : 10000,
     bankStatemente : [
-        // {
-        //     date : "11/02/2022",
-        //     amount : 5000,
-        //     description : DEAL.DEBITO,
-        // },
+        {
+            date : "11/02/2022",
+            amount : 5000,
+            description : DEAL.DEBITO,
+        },
         
-        // {
-        //     date : "20/06/2022",
-        //     amount : 2000,
-        //     description : DEAL.DEPOSITO,
-        // }
+        {
+            date : "20/06/2022",
+            amount : 2000,
+            description : DEAL.DEPOSITO,
+        }
     ]
    },
 
@@ -57,17 +57,17 @@ export let usersBank : Users[] = [
     birthDate : "19/01/1984",
     balance : 10000,
     bankStatemente : [
-        // {
-        //     date : "22/08/2022",
-        //     amount : 2000,
-        //     description : DEAL.TRANFER_SAIDA,
-        // },
+        {
+            date : "22/08/2022",
+            amount : 2000,
+            description : DEAL.TRANFER_SAIDA,
+        },
 
-        // {
-        //     date : "20/07/2022",
-        //     amount : 2000,
-        //     description : DEAL.DEPOSITO,
-        // }
+        {
+            date : "20/07/2022",
+            amount : 2000,
+            description : DEAL.DEPOSITO,
+        }
     ]
    },   
    {
