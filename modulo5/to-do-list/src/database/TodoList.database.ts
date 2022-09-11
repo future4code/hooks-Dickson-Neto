@@ -26,4 +26,8 @@ export default class TodoListDatabase extends Database implements TodoListReposi
     public async createTask(list : UserTask) : Promise<void>{
         return await Database.connection(task_table).insert(list)
     }
+
+    public async deleteTaskById(id : string) : Promise<number>{
+        return await Database.connection(task_table).delete().where({id : id })
+    }
 }

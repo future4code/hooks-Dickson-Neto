@@ -71,4 +71,13 @@ export class TodoListBusiness {
             return createTask
 
     }
+
+    async deleteTaskById(id : string) : Promise<number>{
+        const findTask = await this.todoListDatabase.deleteTaskById(id)
+
+        if (!findTask) {
+            throw new Error("Usuario não encontrado")
+        }
+        return await this.todoListDatabase.deleteTaskById(id)
+    }
 }

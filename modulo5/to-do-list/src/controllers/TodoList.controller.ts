@@ -70,10 +70,13 @@ export class TodoListController {
        
         try{
             const user_id = req.params.user_id
+            const limitDate = req.body.limit_date.split("/")
+            const convertDate = (`${limitDate[2]}/${limitDate[1]}/${limitDate[0]}`)
+            console.log(convertDate)
             if (user_id){
                 const addUserList = {
                     titulo : req.body.titulo,
-                    limit_date :req.body.limit_date,
+                    limit_date : convertDate,
                     criador_user_id : user_id,
                     status : StatusList.TO_DO,
                     descrição : req.body.descrição,
@@ -87,6 +90,20 @@ export class TodoListController {
             }
            
 
+        }catch (error: any) {
+            res
+              .status(error.statusCode)
+              .send({ message: error.message || error.sqlMessage });
+          }
+    }
+
+    async deteleTaskById(req : Request , res: Response) : Promise<void>{
+        try{
+
+            const idTask = req.params.idTask
+
+            await todoListBusiness.deleteTaskById(idTask)
+            res.end();
         }catch (error: any) {
             res.send(error.message)
             //   .status(error.statusCode)

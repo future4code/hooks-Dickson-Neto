@@ -12,6 +12,7 @@ routerList.put("/user/edit/:userId" , toDoListController.editUserById)
 
 //Criar Tarefas
 routerList.post("/task/:user_id" , toDoListController.createTask)
+routerList.delete("/task/:idTask" , toDoListController.deteleTaskById)
 
 
 export default routerList;

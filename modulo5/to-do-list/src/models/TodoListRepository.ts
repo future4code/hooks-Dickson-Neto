@@ -8,4 +8,5 @@ export interface TodoListRepository {
     getUserById(id : string) : Promise<TodoList[]>
     editUserById(list : newList , id : string) : Promise<number>
     createTask(list : UserTask) : Promise<void>
+    deleteTaskById(id : string) : Promise<number>
 }
