@@ -1,15 +1,17 @@
-
 import {Request , Response} from 'express'
 import { LabBussiness } from "../business/Lab.Bussiness";
 import LabDatabase from '../database/Lab.Database';
+import { StatusCodes } from 'http-status-codes';
 
 const labBussiness = new LabBussiness(new LabDatabase())
 
 export class LabController{
+   
     async getUsers(req : Request , res: Response){
+      
         try{
             const result = await labBussiness.getUser()
-            res.send(result)
+            res.status(StatusCodes.OK).send(result)
         }catch(error : any){
             res.send(error.message)
         }
@@ -27,7 +29,7 @@ export class LabController{
                 sort = order
             }
             const result = await labBussiness.handleProducts(order , sort)
-            res.send(result)
+            res.status(StatusCodes.OK).send(result)
         }catch(error : any){
             res.send(error.message)
         }
@@ -44,11 +46,11 @@ export class LabController{
             }
 
             await labBussiness.createUser(addUserList)
-            res.send(addUserList)
+            res.status(StatusCodes.ACCEPTED).send(addUserList)
 
         }catch (error: any) {
             res
-              .status(error.statusCode)
+              .status(StatusCodes.NON_AUTHORITATIVE_INFORMATION)
               .send({ message: error.message || error.sqlMessage });
          
         }
@@ -62,12 +64,12 @@ export class LabController{
                 image_url: req.body.image_url
             }
             await labBussiness.createProducts(newProducts)
-            res.send(newProducts)
+            res.status(StatusCodes.CREATED).send(newProducts)
 
 
         }catch (error: any) {
             res
-              .status(error.statusCode)
+            .status(StatusCodes.NON_AUTHORITATIVE_INFORMATION)
               .send({ message: error.message || error.sqlMessage });
          
         }
@@ -75,18 +77,21 @@ export class LabController{
 
     async addPurchases(req : Request , res: Response) : Promise<void>{
         try{
+            
             const newPurchases = {
                 user_id : req.body.user_id,
-                products_id : req.body.products_id,
+                product_id : req.body.product_id,
                 quantity : req.body.quantity,
             }
-
+           
+           
             await labBussiness.addPurchases(newPurchases)
-            res.send(newPurchases)
+            res.status(StatusCodes.OK).send("Produto adicionado com sucesso.")
+           
         }catch (error: any) {
-            res.send(error.message)
-            //   .status(error.statusCode)
-            //   .send({ message: error.message || error.sqlMessage });
+            res
+              .status(StatusCodes.NON_AUTHORITATIVE_INFORMATION)
+              .send({ message: error.message || error.sqlMessage });
          
         }
     }
@@ -97,7 +102,7 @@ export class LabController{
 
          if(user_id){
             const result = await labBussiness.purchasesByUserId(user_id)
-           res.send(result)
+           res.status(StatusCodes.OK).send(result)
          }
         }catch (error : any){
             res.send(error.message)

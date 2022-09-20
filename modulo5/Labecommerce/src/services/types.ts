@@ -14,7 +14,6 @@ export type Products = {
 
 export type Purchases = {
     user_id : string,
-    products_id : string,
-    quantity : number,
-
+    product_id : string,
+    quantity : number
 }

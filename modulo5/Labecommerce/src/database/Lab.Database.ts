@@ -30,13 +30,17 @@ export default class LabDatabase extends Database implements LabRepository{
     }
 
     public async addPurchases(purchases : LabPurchases) : Promise<void>{
-  
+       
        return await Database.connection(labPurchases).insert(purchases)
-    //    .select("*").join("labecommerce_products" , "on" , 'labecommerce_purchases.total_price = labecommerce_products.price * labecommerce_purchases.quantity' )
     }
 
     public async purchasesByUserId(user_id : string) : Promise<Purchases[]>{
         return await Database.connection(labPurchases).select("id" , "product_id" , "quantity" ,"total_price").where({user_id : user_id})
+
+    }
+    //BUCANDO PRODUTO PELO ID
+    public async productById(product_id : string) : Promise<Products[]>{
+        return await Database.connection(labProducts).select().where({ id: product_id})
 
     }
 }   
