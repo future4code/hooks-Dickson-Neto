@@ -17,3 +17,8 @@ export type Purchases = {
     product_id : string,
     quantity : number
 }
+
+export type Adress = {
+    users_id : string
+    adress : string
+}

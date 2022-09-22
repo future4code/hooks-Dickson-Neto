@@ -2,6 +2,10 @@ import {Request , Response} from 'express'
 import { LabBussiness } from "../business/Lab.Bussiness";
 import LabDatabase from '../database/Lab.Database';
 import { StatusCodes } from 'http-status-codes';
+import getAdressInfo from '../services/getAdressInfo';
+import { Adress } from '../services/types';
+import transporter from '../services/mailTransporter';
+
 
 const labBussiness = new LabBussiness(new LabDatabase())
 
@@ -46,6 +50,15 @@ export class LabController{
             }
 
             await labBussiness.createUser(addUserList)
+
+            const sendEmail = await transporter.sendMail({
+                from : process.env.NODEMAILER_USER,
+                to : req.body.email,
+                subject : "Criação de conta" ,
+                text: "Parabéns, conta criada com sucesso",
+                html: `<p>Parabéns ${req.body.name}, sua conta foi criada com sucesso ❤️</p>`
+            })
+           
             res.status(StatusCodes.ACCEPTED).send(addUserList)
 
         }catch (error: any) {
@@ -111,4 +124,35 @@ export class LabController{
         
     }
 
+    async addAdress(req: Request , res: Response) : Promise<void> {
+        try{    
+            const users_id = req.params.users_id as string
+
+            const zipCode = req.body.zipCode 
+
+            const adress =  await getAdressInfo(zipCode)
+           
+            const newAdress : Adress = {
+                users_id,
+                adress
+            }
+           
+            await labBussiness.addAdress(newAdress)
+            res.send("Endereço adicionado com sucesso")
+        }catch(error : any) {
+            res.send(error.message)
+        }
+    }
+
+    async getAdress(req : Request , res: Response){
+        try{
+
+            const user_id = req.params.user_id as string
+            const result = await labBussiness.getAdress(user_id)
+            const nomeUser = 
+            res.send(result)
+        }catch(error : any){
+            res.send(error.message)
+        }
+    }
 }

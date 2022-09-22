@@ -1,14 +1,16 @@
 import { Database } from "../migrations/connection";
+import { LabAdress } from "../models/Lab.Adress";
 import {  LabRepository } from "../models/Lab.Repository";
 import { LabUsers } from "../models/LabeUsers";
 import { LabProducts } from "../models/LabProducts";
 import { LabPurchases } from "../models/LabPurchases";
-import { Products, Purchases, Users } from "../services/types";
+import { Adress, Products, Purchases, Users } from "../services/types";
 
 
 const labeUsers = "labecommerce_users"
 const labProducts = "labecommerce_products"
 const labPurchases = "labecommerce_purchases"
+const labAdress = "users_adress"
 
 export default class LabDatabase extends Database implements LabRepository{
     public async getUser() : Promise<Users[]> {
@@ -42,5 +44,13 @@ export default class LabDatabase extends Database implements LabRepository{
     public async productById(product_id : string) : Promise<Products[]>{
         return await Database.connection(labProducts).select().where({ id: product_id})
 
+    }
+
+    public async addAdress(zipCode : LabAdress) : Promise<void>{
+        return await Database.connection(labAdress).insert(zipCode)
+    }
+
+    public async getAdress(user_id : string) : Promise<Adress[]>{
+        return await Database.connection(labAdress).select().where({users_id : user_id})
     }
 }   

@@ -11,11 +11,13 @@ const labController = new LabController();
 router.get("/users" , labController.getUsers)
 router.get("/products" , labController.handleProducts)
 router.get("/user/:user_id/purchases",labController.purchasesByUserId)
+router.get("/adress/:user_id" , labController.getAdress)
 
 //POST
 router.post("/users" , labController.createUser)
 router.post("/products" , labController.createProducts)
 router.post("/purchases" , labController.addPurchases)
+router.post("/adress/:users_id" , labController.addAdress)
 
 
 export default router;

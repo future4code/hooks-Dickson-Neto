@@ -23,3 +23,11 @@ CREATE TABLE labecommerce_purchases(
     FOREIGN KEY(user_id) REFERENCES  labecommerce_users(id),
     FOREIGN KEY(product_id) REFERENCES labecommerce_products(id)
 );
+
+CREATE TABLE users_adress(
+	id BIGINT PRIMARY KEY,
+	users_id BIGINT,
+    adress VARCHAR(200) NOT NULL,
+	
+    FOREIGN KEY(users_id) REFERENCES labecommerce_users(id)
+);
