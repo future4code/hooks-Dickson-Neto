@@ -1,8 +1,5 @@
-import { Product } from "../models/Product";
-import { PurchaseDB } from "../models/Purchase";
-import { User } from "../models/User";
 
-export const users: User[] = [
+export const users = [
     {
         id: "101",
         email: "astrodev@gmail.com",
@@ -20,7 +17,7 @@ export const users: User[] = [
     }
 ]
 
-export const products: Product[] = [
+export const products = [
     {
         id: "201",
         name: "Webcam",
@@ -48,7 +45,7 @@ export const products: Product[] = [
     }
 ]
 
-export const purchases: PurchaseDB[] = [
+export const purchases = [
     {
         id: "301",
         user_id: "101",
