@@ -1,0 +1,36 @@
+###
+GET localhost:3003/users
+
+###
+GET localhost:3003/products
+
+###
+GET localhost:3003/users/:user_id/purchases
+
+
+###
+POST localhost:3003/users
+Content-Type: application/json
+body{
+    name,
+    email,
+    password,
+}
+
+###
+POST localhost:3003/products
+Content-Type: application/json
+body{
+    name,
+    price,
+    image_url,
+}
+
+###
+POST localhost:3003/purchases
+Content-Type: application/json
+body{
+    user_id,
+    products_is,
+    quantity,
+}
