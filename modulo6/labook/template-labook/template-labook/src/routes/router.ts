@@ -12,9 +12,6 @@ router.post("/addedFriend/:id" , labookCT.makeFriends)
 router.get("/post" , labookCT.postById)
 router.get("/timeline/:userId" , labookCT.timeLine)
 
-
-router.get("/friend/:userId" , labookCT.timeLine)
-
 router.delete("/brokenFriend/:id" , labookCT.undoFriends)
 
 export default router

@@ -1,2 +1,39 @@
+### POST
+POST http://localhost:3003/post
+Content-Type: application/json
+
+{
+    "photo" : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fmdshakibdhali9%2Fnew-photo-style%2F&psig=AOvVaw0dnbKdix_WXm-mKdbw7mBM&ust=1666444989085000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCMD8w7218foCFQAAAAAdAAAAABAE",
+    "description" : "Testando o request",
+    "author_id" : "053ee70a-0d1b-4518-a01d-e898e4079ca5"
+}
+
 ###
-POST 
+POST http://localhost:3003/user
+Content-Type:  application/json
+
+{  
+        "name": "Raquel",
+        "email": "Raquel@gmail.com",
+        "password": "12345636"
+        
+}
+
+###
+POST http://localhost:3003/addedFriend/ba8dead4-0eec-426c-9ee5-3756da9a4bce
+Content-Type:  application/json
+
+{  
+        "friend_id" : "053ee70a-0d1b-4518-a01d-e898e4079ca5"
+        
+}
+
+
+###
+GET http://localhost:3003/post
+
+###
+GET http://localhost:3003/timeline/ba8dead4-0eec-426c-9ee5-3756da9a4bce
+
+###
+DELETE http://localhost:3003/brokenFriend/ba8dead4-0eec-426c-9ee5-3756da9a4bce
