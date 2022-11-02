@@ -1,0 +1,17 @@
+
+
+###
+GET localhost:3003/all
+
+
+###
+POST localhost:3003/create
+Content-Type: application/json
+    body{
+    "name": "Kelly Kapoor",
+    "email": "kelly@dundermifflin.com",
+    "password": "fa8s7e6fia7se6ga8i67gf9a7se6f8a7s6e5gaes"
+    }
+
+###
+DELETE localhost:3003/delete/:idUser
