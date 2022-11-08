@@ -1,0 +1,18 @@
+###
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name" : "Jonas",
+    "email" : "Jonas@cookenu.com",
+    "password" : "2345678"
+}
+
+###
+POST  http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email" : "Jonas@cookenu.com",
+    "password" : "2345678"
+}
