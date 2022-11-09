@@ -1,18 +1,57 @@
 ###
+//FAZER CADASTRO
 POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name" : "Jonas",
-    "email" : "Jonas@cookenu.com",
-    "password" : "2345678"
+    "name" : "Otavio Jose",
+    "email" : "otavio@cookenu.com.br",
+    "password" : "33221112"
 }
 
+//FAZER LOGIN
 ###
 POST  http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email" : "Jonas@cookenu.com",
-    "password" : "2345678"
+    "email" : "otavio@cookenu.com.br",
+    "password" : "33221112"
 }
+
+// SEGUIR UMA PESSOA
+###
+POST http://localhost:3003/user/friend
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
+Content-Type: application/json
+
+{
+    "beFriend": "5ca7046c-75e3-4194-8ce0-220dfbf8296f"
+}
+
+//CRIAR NOVA RECEITA
+###
+POST http://localhost:3003/user/recipes
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
+Content-Type: application/json
+
+{
+    "title" : "Carne assada",
+   "description" : "Coxa de galinha assada",
+     "preparationMode" : "Pegue a carne e jogue no oleo" 
+}
+
+###
+//DETALHES DE QUEM TA LOGADO
+GET http://localhost:3003/user/info
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
+
+###
+//DETALHES DE QUALQUER USUARIO CADASTRADO
+GET http://localhost:3003/user/42dbe677-5ec3-469a-a676-0d9a6a328b01
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
+
+###
+//DETALHES DE UMA RECEITA
+GET http://localhost:3003/user/recipes/4c78f301-11f6-4239-81eb-9f6e50d75c6f
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
