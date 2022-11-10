@@ -38,7 +38,7 @@ export class CookenuDT extends Database{
         return Database.connection(TABLE_FRIENDS).insert(addFriend)
     }
 
-    public async removeFriends(userId : string ,  beFriend : string){
-        const result = await Database.connection(TABLE_FRIENDS).delete().where({be_friend : beFriend})
+    public async removeFriends( be_friends : string){
+        const result = await Database.connection(TABLE_FRIENDS).delete().where({be_friends})
     }
 }

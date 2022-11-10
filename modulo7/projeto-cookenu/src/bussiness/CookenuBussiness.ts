@@ -233,10 +233,10 @@ export class CookenuBS{
 
         const getToken : any = authentication.tokenData(user)
        
-        const userId : string = getToken.id as string
+        const be_friends : string = beFriend
        
 
-        const result = await this.cookenuDT.removeFriends(userId ,  beFriend)
+        const result = await this.cookenuDT.removeFriends( be_friends)
 
         return result
         }catch(error : any){
