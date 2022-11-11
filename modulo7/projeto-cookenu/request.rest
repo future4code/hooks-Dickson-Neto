@@ -21,7 +21,7 @@ Content-Type: application/json
 
 // SEGUIR UMA PESSOA
 ###
-POST http://localhost:3003/user/friend
+POST http://localhost:3003/friends/follow
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlOTFmNDQ0LTA5ODItNDVkMC1iYjI5LTMxN2Y2YmQyODBkYSIsImlhdCI6MTY2ODAzNjc2MiwiZXhwIjoxNjY4MDQwMzYyfQ.TUZBxMvn_i2D1KG7ASK8DRetUSb4DtrMcw-ilhbKGRQ
 Content-Type: application/json
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 //CRIAR NOVA RECEITA
 ###
-POST http://localhost:3003/user/recipes
+POST http://localhost:3003/recipes/create
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
 Content-Type: application/json
 
@@ -53,13 +53,13 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTct
 
 ###
 //DETALHES DE UMA RECEITA
-GET http://localhost:3003/user/recipes/4c78f301-11f6-4239-81eb-9f6e50d75c6f
+GET http://localhost:3003/recipes/4c78f301-11f6-4239-81eb-9f6e50d75c6f
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMyZDY4NDJiLTFmNTctNDhkZi1hYmE4LWNkMjkxMzcwMzFkMCIsImlhdCI6MTY2ODAyOTk3NywiZXhwIjoxNjY4MDMzNTc3fQ.evxr8YVS_Fve1S25mYwiSrBLvAsiMiLCsEE8W0Ix4Ns
 
 
 //DESFAZER AMIGOS
 ###
-DELETE http://localhost:3003/user/dontFriend
+DELETE http://localhost:3003/friends/unfloow
 Authorization : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlOTFmNDQ0LTA5ODItNDVkMC1iYjI5LTMxN2Y2YmQyODBkYSIsImlhdCI6MTY2ODAzNjc2MiwiZXhwIjoxNjY4MDQwMzYyfQ.TUZBxMvn_i2D1KG7ASK8DRetUSb4DtrMcw-ilhbKGRQ
 Content-Type: application/json
 
