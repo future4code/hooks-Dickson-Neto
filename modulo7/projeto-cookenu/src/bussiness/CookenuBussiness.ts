@@ -1,6 +1,6 @@
 
 import { CookenuDT } from "../data/CokeenuDatabase";
-import { beFriendsDTO, createRecipesDTO, loginUserDTO, signupUserDTO, timeLineDTO } from "../model/interfaces";
+import { createRecipesDTO, FriendsDTO, loginUserDTO, signupUserDTO } from "../model/interfaces";
 import moment from "moment";
 import { addFriends, createRecipes, signupUser } from "../model/types";
 import { Authentication } from "../services/Authentication";
@@ -98,15 +98,17 @@ export class CookenuBS{
         try{
             const {token} = input
 
-            const tokenTeste = authentication.tokenData(token)
+            const userToken = authentication.tokenData(token)
 
-            if(!tokenTeste){
+            if(!userToken){
                 throw new InvalidToken()
             }
 
-            const information = await cookenuDT.userDetails(tokenTeste.id)
+            const information = await cookenuDT.userDetails(userToken.id)
+            const detailsRecipes = await cookenuDT.getRecipesByUserId(userToken.id)
 
-            return information
+
+            return {information , detailsRecipes }
 
 
         }catch(error : any){
@@ -164,7 +166,7 @@ export class CookenuBS{
                 user_id : getToken.id
             }
             const result = this.cookenuDT.createRecipes(recipes)
-            return result
+            return recipes
         }catch(error : any){
             throw new Error(error.message);
         }
@@ -193,15 +195,15 @@ export class CookenuBS{
 
     //FAZER AMIGOS
 
-    async makeFriends(input : beFriendsDTO ){
+    async makeFriends(input : FriendsDTO ){
         try{
-            const {user , beFriend} = input
+            const {user , friend} = input
 
             if(!user){
                 throw new InvalidToken()
             }
 
-            if(!beFriend){
+            if(!friend){
                 throw new RequiredFiels()
             }
 
@@ -209,7 +211,7 @@ export class CookenuBS{
 
             const addFriend : addFriends = {
                 user : getToken.id,
-                be_friends : beFriend
+                be_friends : friend
             }
             console.log(addFriend)
             const result = await this.cookenuDT.makeFriends(addFriend)
@@ -220,23 +222,23 @@ export class CookenuBS{
         }
     }
 
-    async dontFriend(input : beFriendsDTO){
+    async dontFriend(input : FriendsDTO){
         try{
-            const {user , beFriend} = input
+            const {user , friend} = input
 
         if(!user){
             throw new InvalidToken()
         }
-        if(!beFriend){
+        if(!friend){
             throw new RequiredFiels()
         }
 
         const getToken : any = authentication.tokenData(user)
        
-        const be_friends : string = beFriend
+        const unfollowed : string = friend
        
 
-        const result = await this.cookenuDT.removeFriends( be_friends)
+        const result = await this.cookenuDT.removeFriends( unfollowed)
 
         return result
         }catch(error : any){

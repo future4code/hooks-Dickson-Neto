@@ -17,9 +17,9 @@ export interface createRecipesDTO{
 
 }
 
-export interface beFriendsDTO{
+export interface FriendsDTO{
     user : string,
-    beFriend : string,
+    friend : string,
 }
 
 export interface timeLineDTO{

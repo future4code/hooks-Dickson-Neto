@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { CookenuBS } from "../bussiness/CookenuBussiness";
 import { CookenuDT } from "../data/CokeenuDatabase";
-import { beFriendsDTO, createRecipesDTO, loginUserDTO, signupUserDTO, timeLineDTO } from "../model/interfaces";
+import { createRecipesDTO, FriendsDTO, loginUserDTO, signupUserDTO, timeLineDTO } from "../model/interfaces";
 
 
 
@@ -108,9 +108,9 @@ export class CokeenuCT {
 
     async makeFriends(req : Request , res : Response){
         try{
-           const input : beFriendsDTO = {
+           const input : FriendsDTO = {
                 user : req.headers.authorization  as string,
-                beFriend : req.body.beFriend,
+                friend : req.body.beFriend,
            } 
 
            const result = await cookenuBS.makeFriends(input)
@@ -125,9 +125,9 @@ export class CokeenuCT {
 
     async dontFriend (req : Request , res : Response){
         try{
-            const input : beFriendsDTO = {
+            const input : FriendsDTO = {
                 user : req.headers.authorization  as string,
-                beFriend : req.body.beFriend,
+                friend : req.body.beFriend,
             }
 
             const result = await cookenuBS.dontFriend(input)
