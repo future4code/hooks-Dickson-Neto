@@ -63,4 +63,9 @@ export class UserCT{
             res.send(error.message)
         }
     }
+
+    {
+        "name" : "Dickson",
+        "password" : "1235567"
+        }
 }

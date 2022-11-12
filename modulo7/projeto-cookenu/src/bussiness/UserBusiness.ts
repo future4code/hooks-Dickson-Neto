@@ -31,12 +31,6 @@ export class UserBS{
                 throw new InvalidEmail()
             }
 
-            const isValidateEmail = await cookenuDT.getInformation(email)
-
-            // if(email === isValidateEmail[0].email ){
-            //     throw new invalidUserEmail()
-            // }
-
             const id = idGenerator.generateId()
             const encrypt = await hash.hash(password)
 
@@ -80,7 +74,7 @@ export class UserBS{
         
              if(!isValidadePassword){
                     throw new InvalidPassword()
-                }
+            }
     
             const token = authentication.generateToken(getInfo[0].id)
 
@@ -130,4 +124,6 @@ export class UserBS{
             throw new Error(error.message);
         }
     }
+
+
 }

@@ -11,4 +11,6 @@ userRouter.post("/login" , userCT.login)
 userRouter.get("/info" , userCT.userProfile)
 userRouter.get("/:id" , userCT.informationUser)
 
+
+
 export default userRouter
